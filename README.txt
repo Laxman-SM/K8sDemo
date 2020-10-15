@@ -1,4 +1,8 @@
 
+Steps to reproduce the environment creation. 
+
+1. Manual Creation
+2. Script creation.
 
 az account set --subscription <subid>
 az account list --output table
