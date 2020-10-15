@@ -1,0 +1,34 @@
+---
+alertmanager:
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      group_by: ['job']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 12h
+      receiver: 'null'
+      routes:
+      - match:
+          alertname: Watchdog
+        receiver: 'null'    
+      - match_re:
+          severity: '^(none|warning|critical)$'
+        receiver: 'email'
+    receivers:
+      - name: 'null'
+      - name: 'MySlackChannel'
+        slack_configs:
+          - api_url: 'https://hooks.slack.com/services/000000000/00000000/00000000000000'
+            channel: '#aks-prometheus'
+    receivers:
+    - name: k8s-alert
+      email_configs:
+      - to: laxmansinghm@gmail.com
+        from: laxmansingh_m@hotmail.com
+        # Your smtp server address
+        smarthost: smtp-mail.outlook.com:587
+        auth_username: laxmansingh_m@hotmail.com
+        auth_identity: laxmansingh_m@hotmail.com
+        auth_password: rathore#12 # fake Password for security

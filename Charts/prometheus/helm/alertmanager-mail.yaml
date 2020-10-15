@@ -1,0 +1,25 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager
+  namespace: monitoring
+data:
+  alertmanager.yml: |-
+    global:
+      smtp_smarthost: smtp-mail.outlook.com:587
+      smtp_from: laxmansingh_m@hotmail.com
+      smtp_auth_username: laxmansingh_m@hotmail.com
+      smtp_auth_password: dsfldfdkfdlfhldf		
+      smtp_require_tls: false
+    route:
+      group_by: []
+      group_wait: 30s	
+      group_interval: 5m
+      repeat_interval: 10m
+      receiver: 								
+    receivers:
+    - name:
+      email_configs:
+      - to: 'laxmansinghm@gmail.com'
+
