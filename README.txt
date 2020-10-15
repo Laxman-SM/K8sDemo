@@ -82,7 +82,7 @@ http://x.x.x.x:9090/graph
 
 Add Datasource prometheus
 
-http://51.138.49.216/login
+http://x.x.x.x/login
 
 Import Dashboard 
 
